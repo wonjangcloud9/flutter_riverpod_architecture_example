@@ -61,3 +61,5 @@ ios/Pods/
 *.iml
 *.swp
 *.lock
+
+.cursorrules
