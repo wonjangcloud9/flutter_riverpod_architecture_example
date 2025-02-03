@@ -14,7 +14,7 @@ final class SecureStorage implements ISecureStorage {
   SecureStorage(this._secureStorage);
 
   @override
-  Future<String?> read({required String key}) async {
+  Future<String?> read(String key) async {
     try {
       return await _secureStorage.read(key: key);
     } catch (e) {
@@ -23,7 +23,7 @@ final class SecureStorage implements ISecureStorage {
   }
 
   @override
-  Future<void> write({required String key, required String value}) async {
+  Future<void> write(String key, String value) async {
     try {
       await _secureStorage.write(key: key, value: value);
     } catch (e) {
@@ -32,11 +32,11 @@ final class SecureStorage implements ISecureStorage {
   }
 
   @override
-  Future<void> delete({required String key}) async {
+  Future<void> delete(String key) async {
     try {
       await _secureStorage.delete(key: key);
     } catch (e) {
-      throw Exception(e);
+      rethrow;
     }
   }
 }
